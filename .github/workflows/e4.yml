@@ -1,0 +1,27 @@
+name: Update e4
+
+on:
+  schedule:
+    - cron:  '13 * * * *'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT }}
+
+      - name: Fetch the new key
+        run: curl "https://e4-key.themoviearchive5408.workers.dev/" > $GITHUB_WORKSPACE/e4.json
+
+      - name: Commit report
+        run: |
+          git config --global user.name 'BlackVid'
+          git config --global user.email 'blackvid@users.noreply.github.com'
+          git commit -am "Updated e4"
+          git push
