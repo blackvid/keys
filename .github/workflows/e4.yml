@@ -13,8 +13,6 @@ jobs:
     
     steps:
       - uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.PAT }}
 
       - name: Fetch the new key
         run: curl "https://e4-key.themoviearchive5408.workers.dev/" > $GITHUB_WORKSPACE/e4.json
