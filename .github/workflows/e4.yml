@@ -2,7 +2,7 @@ name: Update e4
 
 on:
   schedule:
-    - cron:  '1,11,21,31,41,51 * * * *'
+    - cron:  '13,43 * * * *'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
