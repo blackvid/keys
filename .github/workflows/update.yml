@@ -2,7 +2,7 @@ name: Update e4
 
 on:
   schedule:
-    - cron:  '13,43 * * * *'
+    - cron:  '13 * * * *'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -14,8 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Fetch the new key
+      - name: Fetch the new E4 key
         run: curl "https://e4-key.themoviearchive5408.workers.dev/" > $GITHUB_WORKSPACE/e4.json
+
+      - name: Fetch the new key
+        run: curl "https://raw.githubusercontent.com/Ciarands/vidsrc-keys/main/keys.json" > $GITHUB_WORKSPACE/vidplay.json
 
       - name: Commit report
         run: |
