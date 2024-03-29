@@ -24,7 +24,7 @@ jobs:
         run: |
           git config --global user.name 'BlackVid'
           git config --global user.email 'blackvid@users.noreply.github.com'
-          if git commit -am "Updated e4"; then
+          if git commit -am "Updated keys"; then
             git push
           else
             echo No changes
